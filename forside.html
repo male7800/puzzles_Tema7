@@ -4,7 +4,185 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forside</title>
+    <link rel="stylesheet" href="https://use.typekit.net/xui6pak.css" />
+    <title>Babushka</title>
+
+    <style>
+      body {
+        background-image: linear-gradient(
+          76.3deg,
+          rgba(44, 62, 78, 1) 12.6%,
+          rgba(69, 103, 131, 1) 82.8%
+        );
+        margin: 0 auto;
+        max-width: 1300px;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 10px;
+      }
+      article {
+        border-radius: 10px;
+        box-shadow: 5px 5px 8px #080808;
+        padding: 10px;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      nav {
+        display: flex;
+        place-content: center;
+        grid-gap: 0.5rem;
+        padding-bottom: 1rem;
+        overflow-x: auto;
+      }
+
+      button:hover {
+        background-color: #7d7d7d;
+      }
+
+      button {
+        background-color: #e7e7e7;
+        font-size: 16px;
+        display: flex;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid;
+        justify-content: flex;
+      }
+
+      header {
+        display: flex;
+        place-content: center;
+      }
+
+      .title {
+        display: flex;
+        place-content: center;
+        font-family: pinot-grigio-modern, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 2.5rem;
+        color: white;
+      }
+      .image {
+        height: 60vh;
+        background-image: url(image/dimitri-photography-JDP_yzauSYg-unsplash.jpg);
+        background-size: cover;
+        border-radius: 3px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="image">
+      <img src="" alt="" class="" />
+    </div>
+    <div class="title"><h1>Babushka</h1></div>
+
+    <nav>
+      <button data-kategori="alle" class="valgte">Alle</button>
+      <button data-kategori="forretter">Forretter</button>
+      <button data-kategori="hovedretter">Hovedretter</button>
+      <button data-kategori="desserter">Desserter</button>
+      <button data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
+    <section id="liste"></section>
+
+    <template>
+      <article>
+        <img src="" alt="" class="billede" />
+        <h3></h3>
+        <p>Beskrivelse: <span class="kortbeskrivelse"></span></p>
+        <p><span class="pris"></span></p>
+      </article>
+    </template>
+
+    <script>
+      const header = document.querySelector("header h1");
+      const medieurl = "https://babushka-dd8a.restdb.io/rest/menu";
+      const myHeaders = {
+        "x-apikey": "600ec2fb1346a1524ff12de4",
+      };
+      document.addEventListener("DOMContentLoaded", start);
+      let retter;
+      let filter = "alle";
+
+      // første funktion der kaldes efter DOM er loaded
+      function start() {
+        const filterKnapper = document.querySelectorAll("nav button");
+        filterKnapper.forEach((knap) =>
+          knap.addEventListener("click", filtrerRetter)
+        );
+        loadJSON();
+      }
+
+      function filtrerRetter() {
+        filter = this.dataset.kategori;
+        visRetter();
+        header.textContent = this.textContent;
+        //console.log(this);
+      }
+
+      async function loadJSON() {
+        const JSONData = await fetch(
+          "https://babushka-dd8a.restdb.io/rest/menu",
+          {
+            headers: myHeaders,
+          }
+        );
+        retter = await JSONData.json();
+        console.log("Retter", retter);
+        visRetter();
+      }
+
+      //funktion der viser personer i liste view
+      function visRetter() {
+        const dest = document.querySelector("#liste"); // container til articles med en person
+        const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
+        const md = "-md.jpg";
+
+        dest.textContent = "";
+        retter.forEach((ret) => {
+          console.log("Kategori", ret.kategori);
+          // loop igennem json (personer)
+          if (filter == ret.kategori || filter == "alle") {
+            const klon = skabelon.cloneNode(true);
+            klon.querySelector(".billede").src =
+              "billede/" + ret.billednavn + md;
+            klon.querySelector("h3").textContent = ret.navn;
+            klon.querySelector(".kortbeskrivelse").textContent =
+              ret.kortbeskrivelse;
+            klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
+            klon
+              .querySelector("article")
+              .addEventListener("click", () => visDetaljer(ret));
+            dest.appendChild(klon);
+          }
+        });
+      }
+
+      function visDetaljer(hvem) {
+        location.href = `singleview.html?id=${hvem._id}`;
+      }
+    </script>
+
+    <footer></footer>
+  </body>
 </html>
