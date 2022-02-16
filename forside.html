@@ -116,9 +116,9 @@
 
     <script>
       const header = document.querySelector("header h1");
-      const medieurl = "https://babushka-dd8a.restdb.io/rest/menu";
+      const medieurl = "https://puzzles-ac0a.restdb.io/rest/puzzles";
       const myHeaders = {
-        "x-apikey": "600ec2fb1346a1524ff12de4",
+        "x-apikey": "620ccd2f34fd621565858655",
       };
       document.addEventListener("DOMContentLoaded", start);
       let retter;
@@ -142,7 +142,7 @@
 
       async function loadJSON() {
         const JSONData = await fetch(
-          "https://babushka-dd8a.restdb.io/rest/menu",
+          "https://puzzles-ac0a.restdb.io/rest/puzzles",
           {
             headers: myHeaders,
           }
