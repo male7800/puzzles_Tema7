@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Betaling</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/x-icon" href="logo/sort.svg" />
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      header ul li a img {
+        width: 40%;
+        padding: 1%;
+      }
+
+      nav {
+        padding: 25px;
+        gap: 20px;
+      }
+      nav .navigation {
+        /* float: right; */
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+      }
+      nav .navigation a {
+        padding-left: 20px;
+      }
+      nav #logo {
+        float: left;
+      }
+      header nav .logo {
+        width: 7%;
+      }
+      nav .navigation .kurv .billede {
+        background-image: url(billede/kurv.png);
+        background-size: cover;
+        height: 50px;
+        width: 50px;
+      }
+      nav .navigation .shop {
+        padding-top: 16px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        /* udskift skrifttype */
+        font-family: "Courier New", Courier, monospace;
+      }
+      h3 {
+        font-family: "Abril Fatface", cursive;
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+      /* #first_section {
+        width: 100vw;
+        height: 100%;
+        background-image: url(billede/betaling.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+      } */
+      #first_section img {
+        width: 100vw;
+      }
+      footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 25vw;
+        padding-right: 25vw;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-top: 20px;
+        gap: 10px;
+        background-color: black;
+        color: white;
+      }
+      footer h3 {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a id="logo" href="index.html"
+          ><img class="logo" src="logo/sort.svg" alt=""
+        /></a>
+        <div class="navigation">
+          <a class="shop" href="#0">Shop</a>
+          <a class="kurv" href="betaling.html"> <div class="billede"></div></a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="first_section">
+        <img src="billede/betaling.png" alt="" />
+      </section>
+    </main>
+    <footer>
+      <div class="left">
+        <h3>Firmaet</h3>
+        <p>Om os</p>
+        <p>Bæredygtighed</p>
+      </div>
+      <div class="middle">
+        <h3>Information</h3>
+        <p>Betaling</p>
+        <p>Fragt</p>
+        <p>Retur</p>
+        <p>FAQ</p>
+      </div>
+      <div class="right">
+        <h3>Kontakt</h3>
+        <p>+45 0000 0000</p>
+        <p>Find butik</p>
+      </div>
+    </footer>
+  </body>
+</html>
