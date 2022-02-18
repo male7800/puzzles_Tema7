@@ -5,84 +5,117 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.typekit.net/xui6pak.css" />
-    <title>Forside</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@100;300&family=Ubuntu:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <title>SHOP</title>
 
     <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
       body {
-        background-color: #7d7d7d;
         margin: 0 auto;
         max-width: 1300px;
       }
 
-      main {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
-
       section {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        margin-top: 3vw;
       }
+
       article {
-        border-radius: 10px;
-        box-shadow: 5px 5px 8px #080808;
-        padding: 10px;
-        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         cursor: pointer;
+        padding: 50px;
+      }
+
+      article:nth-child(2) {
+        background-color: #d5dee5;
+      }
+
+      article:nth-child(3) {
+        background-color: #d5dee5;
+      }
+
+      article:nth-child(4) {
+        background-color: #ee7f63;
+      }
+
+      article:nth-child(5) {
+        background-color: #ee7f63;
+      }
+
+      article:nth-child(8) {
+        background-color: #f9e6a1;
+      }
+
+      article:nth-child(9) {
+        background-color: #f9e6a1;
       }
 
       img {
-        max-width: 100%;
+        width: 250px;
+        height: auto;
+      }
+
+      p {
+        max-width: 300px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      h3 {
+        font-family: "Abril Fatface", cursive;
+        padding-top: 50px;
       }
 
       nav {
         display: flex;
-        place-content: center;
-        grid-gap: 0.5rem;
-        padding-bottom: 1rem;
-        overflow-x: auto;
+        justify-content: flex-start;
+        flex-wrap: wrap;
       }
 
-      button:hover {
-        background-color: #7d7d7d;
-      }
-
-      button {
-        background-color: #e7e7e7;
-        font-size: 16px;
+      .btn {
+        font-family: "Abril Fatface", cursive;
         display: flex;
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 0.5rem;
+        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-right: 60px;
+        outline: 2px solid rgb(131, 100, 74);
+        opacity: 0.6;
+        transition: 0.3s;
         cursor: pointer;
-        color: black;
-        padding: 15px 32px;
-        text-align: center;
-        border-radius: 5px;
-        border: 1px solid;
-        justify-content: flex;
+      }
+
+      .btn:hover {
+        opacity: 1;
       }
 
       header {
         display: flex;
-        place-content: center;
+        align-items: flex-start;
       }
 
       .title {
-        display: flex;
-        place-content: center;
-        font-family: pinot-grigio-modern, sans-serif;
-        font-weight: 700;
-        font-style: normal;
-        font-size: 2.5rem;
-        color: white;
-      }
-      .image {
-        height: 60vh;
-        background-image: url(image/dimitri-photography-JDP_yzauSYg-unsplash.jpg);
-        background-size: cover;
-        border-radius: 3px;
+        font-family: "Abril Fatface", cursive;
+        font-size: 2rem;
+        color: rgb(37, 37, 37);
+        margin-bottom: 50px;
+        margin-top: 50px;
       }
     </style>
   </head>
@@ -92,11 +125,10 @@
     </header>
 
     <nav>
-      <button data-kategori="alle" class="valgte">Alle</button>
-      <button data-kategori="natur">Natur</button>
-      <button data-kategori="havet">Havet</button>
-      <button data-kategori="keledyr">Kæledyr</button>
-      <button data-kategori="drikkevarer">Drikkevarer</button>
+      <div class="btn" data-kategori="alle">PUZZLES</div>
+      <div class="btn" data-kategori="natur" class="valgte">NATUR</div>
+      <div class="btn" data-kategori="havet">HAVET</div>
+      <div class="btn" data-kategori="keledyr">KÆLEDYR</div>
     </nav>
     <section id="liste"></section>
 
@@ -104,8 +136,8 @@
       <article>
         <img src="" alt="" class="billede" />
         <h3></h3>
-        <p>Beskrivelse: <span class="kortbeskrivelse"></span></p>
-        <p><span class="pris"></span></p>
+        <!-- <p>Beskrivelse: <span class="kortbeskrivelse"></span></p> -->
+        <!-- <p><span class="pris"></span></p> -->
       </article>
     </template>
 
@@ -121,7 +153,7 @@
 
       // første funktion der kaldes efter DOM er loaded
       function start() {
-        const filterKnapper = document.querySelectorAll("nav button");
+        const filterKnapper = document.querySelectorAll("nav .btn");
         filterKnapper.forEach((knap) =>
           knap.addEventListener("click", filtrerRetter)
         );
@@ -161,9 +193,9 @@
             const klon = skabelon.cloneNode(true);
             klon.querySelector(".billede").src = "billede/" + ret.billede;
             klon.querySelector("h3").textContent = ret.navn;
-            klon.querySelector(".kortbeskrivelse").textContent =
-              ret.kortbeskrivelse;
-            klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
+            // klon.querySelector(".kortbeskrivelse").textContent =
+            //   ret.kortbeskrivelse;
+            // klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
             klon
               .querySelector("article")
               .addEventListener("click", () => visDetaljer(ret));
