@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.typekit.net/xui6pak.css" />
+    <title>Forside</title>
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      header ul li a img {
+        width: 40%;
+        padding: 1%;
+      }
+
+      nav {
+        padding: 25px;
+        display: flex;
+        justify-content: right;
+        gap: 20px;
+      }
+
+      .logo {
+        width: 7%;
+      }
+      .kurv {
+        width: 5%;
+      }
+      header nav ul {
+        list-style: none;
+      }
+      nav {
+        position: sticky;
+        top: 0%;
+        z-index: 2;
+
+        padding-bottom: 56px;
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .logoBillede {
+        width: 5%;
+      }
+      .logo {
+        align-items: left;
+        height: 50px;
+        width: 50px;
+        background-image: url(billede/logo.jpeg);
+        background-size: cover;
+      }
+      .kurv {
+        height: 50px;
+        width: 50px;
+        background-image: url(billede/kurv.jpg);
+        background-size: cover;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        /* udskift skrifttype */
+        font-family: "Courier New", Courier, monospace;
+      }
+      .first_section {
+        width: 100%;
+        height: 100vh;
+        background-image: url(billede/billeder_paa_vaeg.png);
+        background-size: cover;
+      }
+      .navn {
+        width: 200px;
+        height: 150px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="first_section">
+        <header>
+          <nav>
+            <a class="logo left" href="#0"></a>
+            <a href="#0">Shop</a>
+            <a class="kurv" href="#0"></a>
+          </nav>
+        </header>
+        <div class="navn"><h1>NAVN</h1></div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
