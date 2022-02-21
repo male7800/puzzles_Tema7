@@ -118,6 +118,22 @@
         margin-bottom: 50px;
         margin-top: 50px;
       }
+
+      footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 25vw;
+        padding-right: 25vw;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-top: 20px;
+        background-color: black;
+        color: white;
+        gap: 10px;
+      }
+      footer h3 {
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body>
@@ -126,10 +142,11 @@
     </header>
 
     <nav>
-      <div class="btn" data-kategori="alle">PUZZLES</div>
+      <div class="btn" data-kategori="alle">ALLE PUZZLES</div>
       <div class="btn" data-kategori="natur" class="valgte">NATUR</div>
       <div class="btn" data-kategori="havet">HAVET</div>
-      <div class="btn" data-kategori="keledyr">KÆLEDYR</div>
+      <div class="btn" data-kategori="kunst">KUNST</div>
+      <div class="btn" data-kategori="andre">ANDRE</div>
     </nav>
     <section id="liste"></section>
 
@@ -210,6 +227,24 @@
       }
     </script>
 
-    <footer></footer>
+    <footer>
+      <div class="left">
+        <h3>Firmaet</h3>
+        <p>Om os</p>
+        <p>Bæredygtighed</p>
+      </div>
+      <div class="middle">
+        <h3>Information</h3>
+        <p>Betaling</p>
+        <p>Fragt</p>
+        <p>Retur</p>
+        <p>FAQ</p>
+      </div>
+      <div class="right">
+        <h3>Kontakt</h3>
+        <p>+45 0000 0000</p>
+        <p>Find butik</p>
+      </div>
+    </footer>
   </body>
 </html>
