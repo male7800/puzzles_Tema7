@@ -4,66 +4,132 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@100;300&family=Ubuntu:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <title>Single View</title>
 
     <style>
-      body {
-        background-image: linear-gradient(
-          76.3deg,
-          rgba(44, 62, 78, 1) 12.6%,
-          rgba(69, 103, 131, 1) 82.8%
-        );
+      * {
+        box-sizing: border-box;
       }
 
-      section {
+      main {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-        gap: 10px;
       }
 
       article {
-        border-radius: 10px;
-        box-shadow: 5px 5px 8px #080808;
-        padding: 10px;
-        background-color: white;
-        cursor: pointer;
-      }
-
-      img {
-        max-width: 100%;
-      }
-
-      button:hover {
-        background-color: #7d7d7d;
-      }
-
-      button {
-        background-color: #e7e7e7;
-        font-size: 16px;
         display: flex;
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 0.5rem;
+        flex-direction: column;
+        z-index: 10;
+        margin: 5vw;
+      }
+
+      h3 {
+        font-family: "Abril Fatface", cursive;
+        margin-bottom: 2vw;
+        font-size: 2rem;
+      }
+
+      p {
+        max-width: 500px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .pris2 {
+        margin-bottom: 2vw;
+        margin-top: 2vw;
+        font-weight: 600;
+      }
+
+      .btn {
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+        padding: 10px;
+        width: 200px;
+        border-radius: 10px;
+        color: white;
+        background-color: black;
         cursor: pointer;
-        color: black;
-        padding: 15px 32px;
-        text-align: center;
-        border-radius: 5px;
-        border: 1px solid;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+      .img {
+        position: relative;
+      }
+
+      .billede {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding: 50px;
+      }
+
+      .orange {
+        display: block;
+        position: absolute;
+        padding-left: 300px;
+        padding-top: 150px;
+        top: 20px;
+        left: -100px;
+        background-color: #ee7f63;
+        z-index: -1;
+      }
+
+      .gul {
+        display: block;
+        position: absolute;
+        padding-left: 300px;
+        padding-top: 150px;
+        right: -100px;
+        bottom: 20px;
+        background-color: #f9e6a1;
+        z-index: -1;
+      }
+
+      @media only screen and (min-width: 800px) {
+        main {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+        }
+        .img {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .billede {
+          margin-top: 70px;
+        }
+        .orange {
+          display: none;
+        }
+        .gul {
+          display: none;
+        }
+
+        article {
+          background-color: #f9e6a1;
+          padding: 50px;
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <button>Tilbage</button>
-      <article>
+      <div class="img">
+        <div class="gul"></div>
+        <div class="orange"></div>
         <img src="" alt="" class="billede" />
+        <div class="btn">Føj til kurv</div>
+      </div>
+      <article>
         <h3></h3>
-        <p>Kategori: <span class="kategori"></span></p>
-        <p>Navn: <span class="navn"></span></p>
-        <p>Region: <span class="oprindelsesregion"></span></p>
-        <p>Beskrivelse: <span class="langbeskrivelse"></span></p>
-        <p>Pris: <span class="pris"></span></p>
+        <p class="langbeskrivelse"></p>
+        <p class="pris2">Pris: <span class="pris"></span></p>
       </article>
     </main>
 
@@ -92,14 +158,11 @@
 
       function visRet() {
         console.log(ret);
-        document.querySelector(".navn").textContent = ret.navn;
         document.querySelector(".billede").src = "billede/" + ret.billede;
-
+        document.querySelector("h3").textContent =
+          "PUZZLEBOX:" + " " + ret.navn;
         document.querySelector(".langbeskrivelse").textContent =
           ret.langbeskrivelse;
-        document.querySelector(".oprindelsesregion").textContent =
-          ret.oprindelsesregion;
-        document.querySelector(".kategori").textContent = ret.kategori;
         document.querySelector(".pris").textContent = ret.pris + "kr.";
         document
           .querySelector("button")
