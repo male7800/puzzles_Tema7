@@ -22,7 +22,7 @@
         margin: 0;
       }
 
-      body {
+      main {
         margin: 0 auto;
         max-width: 1300px;
       }
@@ -81,7 +81,7 @@
         padding-top: 50px;
       }
 
-      nav {
+      .lokalNav {
         display: flex;
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -107,19 +107,52 @@
         opacity: 1;
       }
 
-      header {
-        display: flex;
-        align-items: flex-start;
-      }
-
       .title {
         font-family: "Abril Fatface", cursive;
-        font-size: 2rem;
+        font-size: 4rem;
         color: rgb(37, 37, 37);
         margin-bottom: 50px;
-        margin-top: 50px;
+        /* margin-top: 50px; */
       }
 
+      header nav img {
+        width: 50px;
+      }
+      header nav a {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+        margin-right: 5px;
+      }
+      .logo {
+        float: left;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        /* udskift skrifttype */
+        font-family: "Courier New", Courier, monospace;
+      }
+      header nav a {
+        color: black;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+      .shop {
+        line-height: 50px;
+      }
+      h3 {
+        font-family: "Abril Fatface", cursive;
+        text-transform: uppercase;
+        font-size: 1rem;
+        padding-top: 0;
+      }
+      header {
+        padding-bottom: 100px;
+      }
       footer {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -135,55 +168,58 @@
       footer h3 {
         margin-bottom: 20px;
       }
-      .logo {
-        float: left;
-      }
-      .shop {
-        line-height: 50px;
-      }
-      nav a {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        float: right;
-        margin-right: 5px;
-      }
-      nav img {
-        width: 50px;
-      }
     </style>
   </head>
   <body>
-    <section id="nav_section">
-      <a href="index.html" class="logo"
-        ><img src="logo/sort.svg" alt="logo"
-      /></a>
-      <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
-      <a href="forside.html" class="shop">Shop</a>
-    </section>
-
     <header>
-      <div class="title"><h1>Puzzles</h1></div>
+      <nav>
+        <a href="index.html" class="logo"
+          ><img src="logo/sort.svg" alt="logo"
+        /></a>
+        <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
+        <a href="forside.html" class="shop">Shop</a>
+      </nav>
     </header>
+    <main>
+      <h1 class="title">Puzzles</h1>
 
-    <nav>
-      <div class="btn" data-kategori="alle">ALLE PUZZLES</div>
-      <div class="btn" data-kategori="natur" class="valgte">NATUR</div>
-      <div class="btn" data-kategori="havet">HAVET</div>
-      <div class="btn" data-kategori="kunst">KUNST</div>
-      <div class="btn" data-kategori="andre">ANDRE</div>
-    </nav>
-    <section id="liste"></section>
+      <nav class="lokalNav">
+        <div class="btn" data-kategori="alle">ALLE PUZZLES</div>
+        <div class="btn" data-kategori="natur" class="valgte">NATUR</div>
+        <div class="btn" data-kategori="havet">HAVET</div>
+        <div class="btn" data-kategori="kunst">KUNST</div>
+        <div class="btn" data-kategori="andre">ANDRE</div>
+      </nav>
+      <section id="liste"></section>
 
-    <template>
-      <article>
-        <img src="" alt="" class="billede" />
-        <h3></h3>
-        <!-- <p>Beskrivelse: <span class="kortbeskrivelse"></span></p> -->
-        <!-- <p><span class="pris"></span></p> -->
-      </article>
-    </template>
-
+      <template>
+        <article>
+          <img src="" alt="" class="billede" />
+          <h3></h3>
+          <!-- <p>Beskrivelse: <span class="kortbeskrivelse"></span></p> -->
+          <!-- <p><span class="pris"></span></p> -->
+        </article>
+      </template>
+    </main>
+    <footer>
+      <div class="left">
+        <h3>Firmaet</h3>
+        <p>Om os</p>
+        <p>Bæredygtighed</p>
+      </div>
+      <div class="middle">
+        <h3>Information</h3>
+        <p>Betaling</p>
+        <p>Fragt</p>
+        <p>Retur</p>
+        <p>FAQ</p>
+      </div>
+      <div class="right">
+        <h3>Kontakt</h3>
+        <p>+45 0000 0000</p>
+        <p>Find butik</p>
+      </div>
+    </footer>
     <script>
       const header = document.querySelector("header h1");
       const medieurl = "https://puzzles-ac0a.restdb.io/rest/puzzles";
@@ -251,25 +287,5 @@
         location.href = `singleview.html?id=${hvem._id}`;
       }
     </script>
-
-    <footer>
-      <div class="left">
-        <h3>Firmaet</h3>
-        <p>Om os</p>
-        <p>Bæredygtighed</p>
-      </div>
-      <div class="middle">
-        <h3>Information</h3>
-        <p>Betaling</p>
-        <p>Fragt</p>
-        <p>Retur</p>
-        <p>FAQ</p>
-      </div>
-      <div class="right">
-        <h3>Kontakt</h3>
-        <p>+45 0000 0000</p>
-        <p>Find butik</p>
-      </div>
-    </footer>
   </body>
 </html>
