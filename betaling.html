@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Betaling</title>
     <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/x-icon" href="logo/sort.svg" />
     <style>
       * {
@@ -13,45 +19,34 @@
         margin: 0px;
         box-sizing: border-box;
       }
-
-      header ul li a img {
-        width: 40%;
-        padding: 1%;
-      }
-
-      nav {
-        padding: 25px;
-        gap: 20px;
-      }
-      nav .navigation {
-        /* float: right; */
-        display: flex;
-        flex-direction: row;
-        justify-content: right;
-      }
-      nav .navigation a {
-        padding-left: 20px;
-      }
-      nav #logo {
-        float: left;
-      }
-      header nav .logo {
-        width: 7%;
-      }
-      nav .navigation .kurv .billede {
-        background-image: url(billede/kurv.png);
-        background-size: cover;
-        height: 50px;
+      nav img {
         width: 50px;
       }
-      nav .navigation .shop {
-        padding-top: 16px;
+      nav a {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+        margin-right: 5px;
+      }
+      .logo {
+        float: left;
       }
       a {
         text-decoration: none;
         color: black;
         /* udskift skrifttype */
         font-family: "Courier New", Courier, monospace;
+      }
+      nav a {
+        color: black;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+      .shop {
+        line-height: 50px;
       }
       h3 {
         font-family: "Abril Fatface", cursive;
@@ -88,13 +83,11 @@
   <body>
     <header>
       <nav>
-        <a id="logo" href="index.html"
-          ><img class="logo" src="logo/sort.svg" alt=""
+        <a href="index.html" class="logo"
+          ><img src="logo/sort.svg" alt="logo"
         /></a>
-        <div class="navigation">
-          <a class="shop" href="#0">Shop</a>
-          <a class="kurv" href="betaling.html"> <div class="billede"></div></a>
-        </div>
+        <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
+        <a href="forside.html" class="shop">Shop</a>
       </nav>
     </header>
     <main>
