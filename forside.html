@@ -350,19 +350,19 @@
         const md = "-md.jpg";
 
         dest.textContent = "";
-        pusle.forEach((ret) => {
-          console.log("Kategori", ret.kategori);
+        pusle.forEach((pusle) => {
+          console.log("Kategori", pusle.kategori);
           // loop igennem json (pusle)
-          if (filter == ret.kategori || filter == "alle") {
+          if (filter == pusle.kategori || filter == "alle") {
             const klon = skabelon.cloneNode(true);
-            klon.querySelector(".billede").src = "billede/" + ret.billede;
-            klon.querySelector("h3").textContent = ret.navn;
+            klon.querySelector(".billede").src = "billede/" + pusle.billede;
+            klon.querySelector("h3").textContent = pusle.navn;
             // klon.querySelector(".kortbeskrivelse").textContent =
-            //   ret.kortbeskrivelse;
-            // klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
+            //   pusle.kortbeskrivelse;
+            // klon.querySelector(".pris").textContent = "Pris:" + pusle.pris;
             klon
               .querySelector("article")
-              .addEventListener("click", () => visDetaljer(ret));
+              .addEventListener("click", () => visDetaljer(pusle));
             dest.appendChild(klon);
           }
         });
