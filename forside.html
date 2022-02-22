@@ -143,13 +143,6 @@
         margin-bottom: 50px;
         /* margin-top: 50px; */
       }
-      header nav {
-        display: flex;
-        justify-content: space-between;
-      }
-      header nav img {
-        width: 50px;
-      }
 
       header nav.hidden {
         padding-top: 1rem;
@@ -177,18 +170,37 @@
         }
       }
 
+      /* Styling af navigation */
+      nav img {
+        width: 50px;
+      }
+      /* Menupunkterne står til højre*/
+      nav a {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+        margin-right: 5px;
+      }
+      /* Logo står til venstre*/
+      .logo {
+        float: left;
+      }
       a {
         text-decoration: none;
         color: black;
         /* udskift skrifttype */
         font-family: "Courier New", Courier, monospace;
       }
-      header nav a {
+      nav a {
         color: black;
         text-align: center;
         padding: 14px;
         text-decoration: none;
         font-size: 1rem;
+      }
+      .punkter {
+        line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
       }
 
       h3 {
@@ -224,12 +236,13 @@
         <a href="index.html" class="logo"
           ><img src="logo/sort.svg" alt="logo"
         /></a>
-        <a href="index.html">Velkommen</a>
-        <a href="forside.html">Puzzles</a>
-        <a href="nyheder.html">Nyheder</a>
-        <a href="om_os.html">OM OS</a>
-        <a href="forside.html" class="shop">Shop</a>
+
         <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
+        <a href="forside.html" class="punkter">Shop</a>
+        <a class="punkter" href="index.html">Velkommen</a>
+        <a class="punkter" href="forside.html">Puzzles</a>
+        <a class="punkter" href="nyheder.html">Nyheder</a>
+        <a class="punkter" href="om_os.html">OM OS</a>
       </nav>
     </header>
     <main>
