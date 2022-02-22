@@ -139,7 +139,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get("id");
       const md = "-md.jpg";
-      let ret;
+      let pusle;
 
       const myHeaders = {
         "x-apikey": "620ccd2f34fd621565858655",
@@ -154,18 +154,18 @@
             headers: myHeaders,
           }
         );
-        ret = await JSONData.json();
-        visRet(ret);
+        pusle = await JSONData.json();
+        visPusle(pusle);
       }
 
-      function visRet() {
-        console.log(ret);
-        document.querySelector(".billede").src = "billede/" + ret.billede;
+      function visPusle() {
+        console.log(pusle);
+        document.querySelector(".billede").src = "billede/" + pusle.billede;
         document.querySelector("h3").textContent =
-          "PUZZLEBOX:" + " " + ret.navn;
+          "PUZZLEBOX:" + " " + pusle.navn;
         document.querySelector(".langbeskrivelse").textContent =
-          ret.langbeskrivelse;
-        document.querySelector(".pris").textContent = ret.pris + "kr.";
+          pusle.langbeskrivelse;
+        document.querySelector(".pris").textContent = pusle.pris + "kr.";
         document
           .querySelector("button")
           .addEventListener("click", tilbageTilForside);
