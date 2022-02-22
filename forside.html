@@ -260,21 +260,21 @@
         "x-apikey": "620ccd2f34fd621565858655",
       };
       document.addEventListener("DOMContentLoaded", start);
-      let retter;
+      let pusle;
       let filter = "alle";
 
       // første funktion der kaldes efter DOM er loaded
       function start() {
         const filterKnapper = document.querySelectorAll("nav .btn");
         filterKnapper.forEach((knap) =>
-          knap.addEventListener("click", filtrerRetter)
+          knap.addEventListener("click", filtrerPusle)
         );
         loadJSON();
       }
 
-      function filtrerRetter() {
+      function filtrerPusle() {
         filter = this.dataset.kategori;
-        visRetter();
+        visPusle();
         header.textContent = this.textContent;
         //console.log(this);
       }
@@ -286,21 +286,21 @@
             headers: myHeaders,
           }
         );
-        retter = await JSONData.json();
-        console.log("Retter", retter);
-        visRetter();
+        pusle = await JSONData.json();
+        console.log("Pusle", pusle);
+        visPusle();
       }
 
-      //funktion der viser personer i liste view
-      function visRetter() {
-        const dest = document.querySelector("#liste"); // container til articles med en person
+      //funktion der viser pusle i liste view
+      function visPusle() {
+        const dest = document.querySelector("#liste"); // container til articles med en pusle
         const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
         const md = "-md.jpg";
 
         dest.textContent = "";
-        retter.forEach((ret) => {
+        pusle.forEach((ret) => {
           console.log("Kategori", ret.kategori);
-          // loop igennem json (personer)
+          // loop igennem json (pusle)
           if (filter == ret.kategori || filter == "alle") {
             const klon = skabelon.cloneNode(true);
             klon.querySelector(".billede").src = "billede/" + ret.billede;
