@@ -23,7 +23,7 @@
       /*splashbillede indsættes*/
       #first_section {
         width: 100%;
-        height: 100vh;
+        height: 80vh;
         background-image: url(billede/billeder_paa_vaeg.png);
         background-size: cover;
         background-position: 40% 10%;
@@ -31,8 +31,19 @@
       /*titel placeres i grid på splashbillede*/
       .navn {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 50vh 1fr 1fr; /*vh gør at gridet bliver responsivt efter højden på skærmen*/
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 60vh 1fr 1fr; /*vh gør at gridet bliver responsivt efter højden på skærmen*/
+      }
+      .navn img {
+        width: 400px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        place-self: center; /*placerer h1 centreret vertikalt*/
+        background-color: #e4a47a;
+        padding: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
+        z-index: 2;
       }
       /*strørrelse på billederne*/
       .plakater img {
@@ -56,7 +67,7 @@
       }
       /*baggrundsfarver*/
       .baggrundStor {
-        background-color: #e4a47a;
+        background-color: #d5dee5;
       }
       .baggrundGul {
         background-color: #deb657;
@@ -92,7 +103,7 @@
       }
       /*margin på #second_section*/
       #second_section {
-        margin-top: 40px;
+        margin-top: 120px;
       }
       #second_section h2 {
         margin-left: 2%;
@@ -195,7 +206,9 @@
     <main>
       <!-- Titel på splashbillede -->
       <section id="first_section">
-        <div class="navn"><h1>puzzlebox</h1></div>
+        <div class="navn">
+          <img class="navn" src="logo/sortbox.svg" alt="" />
+        </div>
       </section>
       <!-- Nyheder -->
       <section id="second_section">
