@@ -143,20 +143,40 @@
         margin-bottom: 50px;
         /* margin-top: 50px; */
       }
-
+      header nav {
+        display: flex;
+        justify-content: space-between;
+      }
       header nav img {
         width: 50px;
       }
-      header nav a {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        float: right;
-        margin-right: 5px;
+
+      header nav.hidden {
+        padding-top: 1rem;
+        display: flex;
+        flex: 1 1 100%;
+        flex-flow: column;
       }
-      .logo {
-        float: left;
+
+      .toggle-btn {
+        display: none;
       }
+
+      @media (max-width: 600px) {
+        .toggle-btn {
+          border: none;
+          display: block;
+          min-width: 44px;
+          min-height: 44px;
+          font-size: 1.1rem;
+          cursor: pointer;
+        }
+
+        header nav {
+          display: none;
+        }
+      }
+
       a {
         text-decoration: none;
         color: black;
@@ -170,9 +190,7 @@
         text-decoration: none;
         font-size: 1rem;
       }
-      .shop {
-        line-height: 50px;
-      }
+
       h3 {
         font-family: "Abril Fatface", cursive;
         text-transform: uppercase;
@@ -201,6 +219,7 @@
   </head>
   <body>
     <header>
+      <button class="toggle-btn">☰</button>
       <nav>
         <a href="index.html" class="logo"
           ><img src="logo/sort.svg" alt="logo"
@@ -209,8 +228,8 @@
         <a href="forside.html">Puzzles</a>
         <a href="nyheder.html">Nyheder</a>
         <a href="om_os.html">OM OS</a>
-        <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
         <a href="forside.html" class="shop">Shop</a>
+        <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
       </nav>
     </header>
     <main>
@@ -260,16 +279,36 @@
         "x-apikey": "620ccd2f34fd621565858655",
       };
       document.addEventListener("DOMContentLoaded", start);
+
       let retter;
       let filter = "alle";
 
       // første funktion der kaldes efter DOM er loaded
       function start() {
+        document
+          .querySelector(".toggle-btn")
+          .addEventListener("click", toggleMenu);
         const filterKnapper = document.querySelectorAll("nav .btn");
         filterKnapper.forEach((knap) =>
           knap.addEventListener("click", filtrerRetter)
         );
         loadJSON();
+      }
+
+      function toggleMenu() {
+        console.log("toggleMenu");
+
+        document.querySelector("header nav").classList.toggle("hidden");
+
+        let erSkjult = document
+          .querySelector("nav")
+          .classList.contains("hidden");
+
+        if (erSkjult == true) {
+          document.querySelector(".toggle-btn").textContent = "X";
+        } else {
+          document.querySelector(".toggle-btn").textContent = "☰";
+        }
       }
 
       function filtrerRetter() {
