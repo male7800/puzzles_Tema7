@@ -250,7 +250,6 @@
       };
       document.addEventListener("DOMContentLoaded", start);
 
-      let retter;
       let filter = "alle";
 
       // første funktion der kaldes efter DOM er loaded
@@ -285,7 +284,6 @@
       function visPusle() {
         const dest = document.querySelector("#liste"); // container til articles med en pusle
         const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
-        const md = "-md.jpg";
 
         dest.textContent = "";
         pusle.forEach((pusle) => {
@@ -295,9 +293,6 @@
             const klon = skabelon.cloneNode(true);
             klon.querySelector(".billede").src = "billede/" + pusle.billede;
             klon.querySelector("h3").textContent = pusle.navn;
-            // klon.querySelector(".kortbeskrivelse").textContent =
-            //   pusle.kortbeskrivelse;
-            // klon.querySelector(".pris").textContent = "Pris:" + pusle.pris;
             klon
               .querySelector("article")
               .addEventListener("click", () => visDetaljer(pusle));
