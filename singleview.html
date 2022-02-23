@@ -62,9 +62,6 @@
         transform: scale(1.05);
         transition: transform 0.3s ease;
       }
-      .img {
-        position: relative;
-      }
 
       .billede {
         width: 100%;
@@ -73,54 +70,22 @@
         margin-top: 100px;
       }
 
-      .orange {
-        display: block;
-        position: absolute;
-        padding-left: 300px;
-        padding-top: 150px;
-        top: 100px;
-        left: -100px;
-        background-color: #ee7f63;
-        z-index: -1;
-      }
-
-      .gul {
-        display: block;
-        position: absolute;
-        padding-left: 300px;
-        padding-top: 150px;
-        left: -100px;
-        top: 150px;
-        background-color: #f9e6a1;
-        z-index: -1;
-      }
-
       @media only screen and (min-width: 800px) {
         main {
           display: grid;
           grid-template-columns: 1fr 2fr;
-        }
-        .img {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .billede {
-          margin-top: 70px;
-          padding: 0px;
-        }
-        .orange {
-          display: none;
-        }
-        .gul {
-          display: none;
         }
 
         article {
           background-color: #f9e6a1;
           padding: 50px;
         }
+
+        .billede {
+          padding: 0px;
+        }
       }
+
       /* Styling af navigation */
       nav img {
         width: 50px;
@@ -128,31 +93,22 @@
       /* Menupunkterne står til højre*/
       nav a {
         list-style-type: none;
-        margin: 0;
-        padding: 0;
-        float: right;
+        text-decoration: none;
         margin-right: 5px;
+        padding: 14px;
+        float: right;
+        font-family: "Courier New", Courier, monospace;
       }
+
       /* Logo står til venstre*/
       .logo {
         float: left;
       }
-      a {
-        text-decoration: none;
-        color: black;
-        /* udskift skrifttype */
-        font-family: "Courier New", Courier, monospace;
-      }
-      nav a {
-        color: black;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-        font-size: 1rem;
-      }
+
       .shop {
         line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
       }
+
       /* Styling af footer */
       footer {
         display: flex;

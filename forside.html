@@ -100,6 +100,13 @@
         height: auto;
       }
 
+      .title {
+        font-family: "Abril Fatface", cursive;
+        font-size: 4rem;
+        color: rgb(37, 37, 37);
+        margin-bottom: 50px;
+      }
+
       p {
         max-width: 300px;
         font-family: "Roboto", sans-serif;
@@ -108,8 +115,11 @@
       h3 {
         font-family: "Abril Fatface", cursive;
         padding-top: 50px;
+        text-transform: uppercase;
+        font-size: 1rem;
       }
 
+      /*Filterknapper*/
       .lokalNav {
         display: flex;
         justify-content: flex-start;
@@ -125,68 +135,47 @@
         padding-left: 50px;
         padding-right: 50px;
         margin-right: 60px;
+        margin-bottom: 20px;
         outline: 2px solid rgb(131, 100, 74);
         opacity: 0.6;
         transition: 0.3s;
         cursor: pointer;
-        margin-bottom: 20px;
       }
 
       .btn:hover {
         opacity: 1;
       }
 
-      .title {
-        font-family: "Abril Fatface", cursive;
-        font-size: 4rem;
-        color: rgb(37, 37, 37);
-        margin-bottom: 50px;
-        /* margin-top: 50px; */
+      /* Styling af navigation */
+
+      header {
+        padding-bottom: 100px;
       }
 
-      /* Styling af navigation */
       nav img {
         width: 50px;
       }
+
       /* Menupunkterne står til højre*/
       nav a {
         list-style-type: none;
-        margin: 0;
-        padding: 0;
-        float: right;
+        text-decoration: none;
         margin-right: 5px;
-      }
-
-      .shop {
-        line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
+        padding: 14px;
+        float: right;
+        font-family: "Courier New", Courier, monospace;
       }
 
       /* Logo står til venstre*/
       .logo {
         float: left;
       }
-      a {
-        text-decoration: none;
-        color: black;
-        /* udskift skrifttype */
-        font-family: "Courier New", Courier, monospace;
+
+      .shop {
+        line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
       }
-      nav a {
-        color: black;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-        font-size: 1rem;
-      }
-      h3 {
-        font-family: "Abril Fatface", cursive;
-        text-transform: uppercase;
-        font-size: 1rem;
-        padding-top: 0;
-      }
-      header {
-        padding-bottom: 100px;
-      }
+
+      /*footer*/
       footer {
         display: flex;
         flex-wrap: wrap;
