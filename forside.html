@@ -144,32 +144,6 @@
         /* margin-top: 50px; */
       }
 
-      header nav.hidden {
-        padding-top: 1rem;
-        display: flex;
-        flex: 1 1 100%;
-        flex-flow: column;
-      }
-
-      .toggle-btn {
-        display: none;
-      }
-
-      @media (max-width: 600px) {
-        .toggle-btn {
-          border: none;
-          display: block;
-          min-width: 44px;
-          min-height: 44px;
-          font-size: 1.1rem;
-          cursor: pointer;
-        }
-
-        header nav {
-          display: none;
-        }
-      }
-
       /* Styling af navigation */
       nav img {
         width: 50px;
@@ -182,6 +156,11 @@
         float: right;
         margin-right: 5px;
       }
+
+      .shop {
+        line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
+      }
+
       /* Logo står til venstre*/
       .logo {
         float: left;
@@ -199,10 +178,6 @@
         text-decoration: none;
         font-size: 1rem;
       }
-      .punkter {
-        line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
-      }
-
       h3 {
         font-family: "Abril Fatface", cursive;
         text-transform: uppercase;
@@ -213,16 +188,15 @@
         padding-bottom: 100px;
       }
       footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding-left: 25vw;
-        padding-right: 25vw;
-        padding-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
         padding-bottom: 30px;
         margin-top: 20px;
+        padding-top: 50px;
         background-color: black;
         color: white;
-        gap: 10px;
+        justify-content: space-evenly;
+        gap: 50px;
       }
       footer h3 {
         margin-bottom: 20px;
@@ -231,18 +205,12 @@
   </head>
   <body>
     <header>
-      <button class="toggle-btn">☰</button>
       <nav>
         <a href="index.html" class="logo"
           ><img src="logo/sort.svg" alt="logo"
         /></a>
-
         <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
-        <a href="forside.html" class="punkter">Shop</a>
-        <a class="punkter" href="index.html">Velkommen</a>
-        <a class="punkter" href="forside.html">Puzzles</a>
-        <a class="punkter" href="nyheder.html">Nyheder</a>
-        <a class="punkter" href="om_os.html">OM OS</a>
+        <a href="forside.html" class="shop">Shop</a>
       </nav>
     </header>
     <main>
@@ -298,30 +266,11 @@
 
       // første funktion der kaldes efter DOM er loaded
       function start() {
-        document
-          .querySelector(".toggle-btn")
-          .addEventListener("click", toggleMenu);
         const filterKnapper = document.querySelectorAll("nav .btn");
         filterKnapper.forEach((knap) =>
           knap.addEventListener("click", filtrerPusle)
         );
         loadJSON();
-      }
-
-      function toggleMenu() {
-        console.log("toggleMenu");
-
-        document.querySelector("header nav").classList.toggle("hidden");
-
-        let erSkjult = document
-          .querySelector("nav")
-          .classList.contains("hidden");
-
-        if (erSkjult == true) {
-          document.querySelector(".toggle-btn").textContent = "X";
-        } else {
-          document.querySelector(".toggle-btn").textContent = "☰";
-        }
       }
 
       function filtrerPusle() {
