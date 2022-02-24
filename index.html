@@ -28,23 +28,7 @@
         background-size: cover;
         background-position: 40% 10%;
       }
-      /*titel placeres i grid på splashbillede*/
-      .navn {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 60vh 1fr 1fr; /*vh gør at gridet bliver responsivt efter højden på skærmen*/
-      }
-      .navn img {
-        width: 400px;
-        grid-column: 2/3;
-        grid-row: 2/3;
-        place-self: center; /*placerer h1 centreret vertikalt*/
-        background-color: #e4a47a;
-        padding: 20px;
-        padding-left: 100px;
-        padding-right: 100px;
-        z-index: 2;
-      }
+
       /*strørrelse på billederne*/
       .plakater img {
         /* max-width: 350px; */
@@ -56,6 +40,22 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         /* gap: 5%; */
+      }
+      /*titel placeres i grid på splashbillede*/
+      .navn {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 60vh 1fr 1fr; /*vh gør at gridet bliver responsivt efter højden på skærmen*/
+      }
+      .navn img {
+        width: 400px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        place-self: center; /*placerer h1 centreret vertikalt*/
+        background-color: #e4a47a;
+        padding: 20px;
+        padding-left: 100px;
+        padding-right: 100px;
       }
       /*vis 2 billeder horisontalt på telefon i stedet for 3 som på større skærme*/
       @media (max-width: 800px) {
@@ -184,7 +184,8 @@
         text-decoration: none;
         color: black;
         /* udskift skrifttype */
-        font-family: "Courier New", Courier, monospace;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
       }
       nav a {
         color: black;
@@ -193,7 +194,7 @@
         text-decoration: none;
         font-size: 1rem;
       }
-      .shop {
+      .punkter {
         line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
       }
     </style>
@@ -205,7 +206,7 @@
           ><img src="logo/sort.svg" alt="logo"
         /></a>
         <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
-        <a href="forside.html" class="shop">Shop</a>
+        <a href="forside.html" class="punkter">Shop</a>
       </nav>
     </header>
     <main>
