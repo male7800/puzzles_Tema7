@@ -43,7 +43,7 @@
       }
 
       article img:hover {
-        transform: scale(0.9);
+        transform: scale(1.05);
         transition: transform 0.3s ease;
       }
 
@@ -100,6 +100,13 @@
         height: auto;
       }
 
+      .title {
+        font-family: "Abril Fatface", cursive;
+        font-size: 4rem;
+        color: rgb(37, 37, 37);
+        margin-bottom: 50px;
+      }
+
       p {
         max-width: 300px;
         font-family: "Roboto", sans-serif;
@@ -108,8 +115,11 @@
       h3 {
         font-family: "Abril Fatface", cursive;
         padding-top: 50px;
+        text-transform: uppercase;
+        font-size: 1rem;
       }
 
+      /*Filterknapper*/
       .lokalNav {
         display: flex;
         justify-content: flex-start;
@@ -125,104 +135,57 @@
         padding-left: 50px;
         padding-right: 50px;
         margin-right: 60px;
+        margin-bottom: 20px;
         outline: 2px solid rgb(131, 100, 74);
         opacity: 0.6;
         transition: 0.3s;
         cursor: pointer;
-        margin-bottom: 20px;
       }
 
       .btn:hover {
         opacity: 1;
       }
 
-      .title {
-        font-family: "Abril Fatface", cursive;
-        font-size: 4rem;
-        color: rgb(37, 37, 37);
-        margin-bottom: 50px;
-        /* margin-top: 50px; */
-      }
-
-      header nav.hidden {
-        padding-top: 1rem;
-        display: flex;
-        flex: 1 1 100%;
-        flex-flow: column;
-      }
-
-      .toggle-btn {
-        display: none;
-      }
-
-      @media (max-width: 600px) {
-        .toggle-btn {
-          border: none;
-          display: block;
-          min-width: 44px;
-          min-height: 44px;
-          font-size: 1.1rem;
-          cursor: pointer;
-        }
-
-        header nav {
-          display: none;
-        }
-      }
-
       /* Styling af navigation */
+
+      header {
+        padding-bottom: 100px;
+      }
+
       nav img {
         width: 50px;
       }
+
       /* Menupunkterne står til højre*/
       nav a {
         list-style-type: none;
-        margin: 0;
-        padding: 0;
-        float: right;
+        text-decoration: none;
         margin-right: 5px;
+        padding: 14px;
+        float: right;
+        font-family: "Courier New", Courier, monospace;
       }
+
       /* Logo står til venstre*/
       .logo {
         float: left;
       }
-      a {
-        text-decoration: none;
-        color: black;
-        /* udskift skrifttype */
-        font-family: "Courier New", Courier, monospace;
-      }
-      nav a {
-        color: black;
-        text-align: center;
-        padding: 14px;
-        text-decoration: none;
-        font-size: 1rem;
-      }
-      .punkter {
+
+      .shop {
         line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
       }
 
-      h3 {
-        font-family: "Abril Fatface", cursive;
-        text-transform: uppercase;
-        font-size: 1rem;
-        padding-top: 0;
-      }
-      header {
-        padding-bottom: 100px;
-      }
+      /*footer*/
       footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding-left: 25vw;
-        padding-right: 25vw;
-        padding-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
         padding-bottom: 30px;
         margin-top: 20px;
+        padding-top: 50px;
         background-color: black;
         color: white;
-        gap: 10px;
+        justify-content: space-evenly;
+        gap: 50px;
       }
       footer h3 {
         margin-bottom: 20px;
@@ -231,18 +194,12 @@
   </head>
   <body>
     <header>
-      <button class="toggle-btn">☰</button>
       <nav>
         <a href="index.html" class="logo"
           ><img src="logo/sort.svg" alt="logo"
         /></a>
-
         <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
-        <a href="forside.html" class="punkter">Shop</a>
-        <a class="punkter" href="index.html">Velkommen</a>
-        <a class="punkter" href="forside.html">Puzzles</a>
-        <a class="punkter" href="nyheder.html">Nyheder</a>
-        <a class="punkter" href="om_os.html">OM OS</a>
+        <a href="forside.html" class="shop">Shop</a>
       </nav>
     </header>
     <main>
@@ -293,35 +250,15 @@
       };
       document.addEventListener("DOMContentLoaded", start);
 
-      let retter;
       let filter = "alle";
 
       // første funktion der kaldes efter DOM er loaded
       function start() {
-        document
-          .querySelector(".toggle-btn")
-          .addEventListener("click", toggleMenu);
         const filterKnapper = document.querySelectorAll("nav .btn");
         filterKnapper.forEach((knap) =>
           knap.addEventListener("click", filtrerPusle)
         );
         loadJSON();
-      }
-
-      function toggleMenu() {
-        console.log("toggleMenu");
-
-        document.querySelector("header nav").classList.toggle("hidden");
-
-        let erSkjult = document
-          .querySelector("nav")
-          .classList.contains("hidden");
-
-        if (erSkjult == true) {
-          document.querySelector(".toggle-btn").textContent = "X";
-        } else {
-          document.querySelector(".toggle-btn").textContent = "☰";
-        }
       }
 
       function filtrerPusle() {
@@ -347,22 +284,18 @@
       function visPusle() {
         const dest = document.querySelector("#liste"); // container til articles med en pusle
         const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
-        const md = "-md.jpg";
 
         dest.textContent = "";
-        pusle.forEach((ret) => {
-          console.log("Kategori", ret.kategori);
+        pusle.forEach((pusle) => {
+          console.log("Kategori", pusle.kategori);
           // loop igennem json (pusle)
-          if (filter == ret.kategori || filter == "alle") {
+          if (filter == pusle.kategori || filter == "alle") {
             const klon = skabelon.cloneNode(true);
-            klon.querySelector(".billede").src = "billede/" + ret.billede;
-            klon.querySelector("h3").textContent = ret.navn;
-            // klon.querySelector(".kortbeskrivelse").textContent =
-            //   ret.kortbeskrivelse;
-            // klon.querySelector(".pris").textContent = "Pris:" + ret.pris;
+            klon.querySelector(".billede").src = "billede/" + pusle.billede;
+            klon.querySelector("h3").textContent = pusle.navn;
             klon
               .querySelector("article")
-              .addEventListener("click", () => visDetaljer(ret));
+              .addEventListener("click", () => visDetaljer(pusle));
             dest.appendChild(klon);
           }
         });
