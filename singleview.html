@@ -12,11 +12,14 @@
 
     <style>
       * {
+        margin: 0px;
+        padding: 0px;
         box-sizing: border-box;
       }
 
       main {
         display: grid;
+        padding-top: 50px;
       }
 
       article {
@@ -31,12 +34,19 @@
         margin-bottom: 2vw;
         font-size: 2rem;
       }
+      main h3 {
+        text-transform: uppercase;
+        letter-spacing: 20px;
+      }
 
       p {
         max-width: 500px;
         font-family: "Roboto", sans-serif;
       }
-
+      footer p {
+        padding: 0;
+        margin: 0;
+      }
       .pris2 {
         margin-bottom: 2vw;
         margin-top: 2vw;
@@ -95,18 +105,17 @@
         margin-right: 5px;
         padding: 14px;
         float: right;
-        font-family: "Courier New", Courier, monospace;
+        font-family: "Roboto", sans-serif;
+        letter-spacing: 5px;
       }
 
       /* Logo står til venstre*/
       .logo {
         float: left;
       }
-
-      .shop {
+      .punkter {
         line-height: 50px; /* øget linjehøjde for "shop" menupunktet for at det ligger på niveau med kurven */
       }
-
       /* Styling af footer */
       footer {
         display: flex;
@@ -119,8 +128,12 @@
         justify-content: space-evenly;
         gap: 50px;
       }
-
       footer h3 {
+        font-family: "Abril Fatface", cursive;
+        font-size: 1rem;
+        text-transform: uppercase;
+        padding-top: 0;
+        margin-top: 0;
         margin-bottom: 20px;
       }
     </style>
@@ -132,7 +145,7 @@
           ><img src="logo/sort.svg" alt="logo"
         /></a>
         <a href="betaling.html"><img src="billede/kurv.png" alt="" /></a>
-        <a href="forside.html" class="shop">Shop</a>
+        <a href="forside.html" class="punkter">Shop</a>
       </nav>
     </header>
     <main>
@@ -188,8 +201,7 @@
       function visPusle() {
         console.log(pusle);
         document.querySelector(".billede").src = "billede/" + pusle.billede;
-        document.querySelector("h3").textContent =
-          "PUZZLEBOX:" + " " + pusle.navn;
+        document.querySelector("h3").textContent = pusle.navn;
         document.querySelector(".langbeskrivelse").textContent =
           pusle.langbeskrivelse;
         document.querySelector(".pris").textContent = pusle.pris + "kr.";
